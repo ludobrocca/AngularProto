@@ -3,6 +3,7 @@ import { CustomersModule } from './customers/customer.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    CustomersModule
+    CustomersModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
