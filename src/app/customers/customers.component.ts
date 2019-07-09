@@ -10,6 +10,7 @@ export class CustomersComponent implements OnInit {
 
   title: string;
   people: ICustomer[];
+  isVisible = true;
   constructor() { }
 
   ngOnInit() {
@@ -20,6 +21,9 @@ export class CustomersComponent implements OnInit {
       { id: 3, name: 'Michelle Thomas', city: 'Seattle', orderTotal: 99.99, customerSince: new Date(2002, 10, 31)},
       { id: 4, name: 'Jim Thomas', city: 'New York', orderTotal: 599.99, customerSince: new Date(2002, 10, 31)},
   ];
+  }
+  changeVisibility() {
+    this.isVisible = !this.isVisible;
   }
 
 }
