@@ -9,7 +9,8 @@ template: `
 })
 export class FilterTextBoxComponent implements OnInit {
 
-  private _filter : string;
+// tslint:disable-next-line: variable-name
+  private _filter: string;
 
   @Input() get filter() {
     return this._filter;
