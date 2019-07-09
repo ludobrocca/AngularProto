@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { CustomersModule } from './customers/customer.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     CustomersModule,
     SharedModule
   ],

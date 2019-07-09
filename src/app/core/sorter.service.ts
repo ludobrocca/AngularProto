@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// can be reused for any sorting task needed for a project
+// can be reused for any sorting task needed for a project, takes a collection and a property
 @Injectable()
 export class SorterService {
 
