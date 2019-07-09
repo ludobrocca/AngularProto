@@ -8,6 +8,7 @@ import { ICustomer } from 'src/app/shared/interfaces';
 })
 export class CustomersListComponent implements OnInit {
 
+  noCustomersFound = false;
   filteredCustomers: ICustomer[] = [];
   customersOrderTotal: number;
   currencyCode = 'USD';
@@ -16,4 +17,15 @@ export class CustomersListComponent implements OnInit {
   ngOnInit() {
   }
 
+  calculateOrders() {
+    this.customersOrderTotal = 0;
+    this.filteredCustomers.forEach((cust: ICustomer) => {
+        this.customersOrderTotal += cust.orderTotal;
+    });
+  }
+
+  sort(prop: string)  {
+    // TODO Sorting service
+    alert(prop);
+  }
 }
