@@ -11,6 +11,6 @@ import { from } from 'rxjs';
 @NgModule({
   imports:      [ CommonModule, SharedModule, FormsModule ], // CommonModule has ngFor. ngIf, FormsModule has ngModel
   declarations: [ CustomersComponent, CustomersListComponent, FilterTextBoxComponent ],
-  exports: [CustomersComponent]
+  exports: [ CustomersComponent ]
 })
 export class CustomersModule { }

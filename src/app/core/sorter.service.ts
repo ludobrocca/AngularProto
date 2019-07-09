@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+// can be reused for any sorting task needed for a project
 @Injectable()
 export class SorterService {
 
@@ -10,7 +10,7 @@ export class SorterService {
         this.property = prop;
         this.direction = (this.property === prop) ? this.direction * -1 : 1;
 
-        collection.sort((a: any,b: any) => {
+        collection.sort((a: any, b: any) => {
             let aVal: any;
             let bVal: any;
 
