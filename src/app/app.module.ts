@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { CustomersModule } from './customers/customer.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     CoreModule,
     CustomersModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
