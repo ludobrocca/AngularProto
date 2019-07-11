@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'; // has all routing modules
-
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/customers'}, // redirects url requests to the home page
-    { path: '**', pathMatch: 'full', redirectTo: '/customers' } // ** is a wildcard that indicates any url requst that doesn't
-                                                               // match previous routing cases
+    { path: '', pathMatch: 'full', redirectTo: '/customers' },
+    { path: '**', pathMatch: 'full', redirectTo: '/customers' }
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ], // here we register the const routes into the routing module
-    exports: [ RouterModule ] // we make the module available to all classes that import
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ]
 })
 export class AppRoutingModule {
 

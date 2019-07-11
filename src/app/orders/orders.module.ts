@@ -12,3 +12,4 @@ import { OrdersRoutingModule } from './orders-routing.module';
     declarations: [ OrdersComponent ]
 })
 export class OrdersModule { }
+
