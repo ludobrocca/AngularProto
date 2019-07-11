@@ -21,8 +21,6 @@ export class OrdersComponent implements OnInit {
     let id = +this.route.snapshot.paramMap.get('id');
     this.dataService.getOrders(id).subscribe((orders: IOrder[]) => {
       this.orders = orders;
-      orders.forEach((x: IOrder) => console.log(x.customerId)
-      );
     });
 
     this.dataService.getCustomer(id).subscribe((customer: ICustomer) => {
