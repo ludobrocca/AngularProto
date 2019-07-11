@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-// can be reused for any sorting task needed for a project, takes a collection and a property
+
 @Injectable()
 export class SorterService {
 
-  property: string = null;
-  direction = 1;
+	property: string = null;
+	direction: number = 1;
 
     sort(collection: any[], prop: any) {
         this.property = prop;
         this.direction = (this.property === prop) ? this.direction * -1 : 1;
 
-        collection.sort((a: any, b: any) => {
+        collection.sort((a: any,b: any) => {
             let aVal: any;
             let bVal: any;
 
@@ -18,24 +18,23 @@ export class SorterService {
             if (prop && prop.indexOf('.') > -1) {
               aVal = this.resolveProperty(prop, a);
               bVal = this.resolveProperty(prop, b);
-            } else {
+            }
+            else {
               aVal = a[prop];
               bVal = b[prop];
             }
 
             // Fix issues that spaces before/after string value can cause such as ' San Francisco'
-            if (this.isString(aVal)) {
-              aVal = aVal.trim().toUpperCase();
-            }
-            if (this.isString(bVal)) {
-              bVal = bVal.trim().toUpperCase();
-            }
+            if (this.isString(aVal)) aVal = aVal.trim().toUpperCase();
+            if (this.isString(bVal)) bVal = bVal.trim().toUpperCase();
 
-            if (aVal === bVal) {
+            if(aVal === bVal){
                 return 0;
-            } else if (aVal > bVal) {
+            }
+            else if (aVal > bVal){
                 return this.direction * -1;
-            } else {
+            }
+            else {
                 return this.direction * 1;
             }
         });
@@ -46,9 +45,9 @@ export class SorterService {
     }
 
     resolveProperty(path: string, obj: any) {
-      return path.split('.').reduce( (prev, curr) => {
-          return (prev ? prev[curr] : undefined);
-      }, obj || self);
+      return path.split('.').reduce(function(prev, curr) {
+          return (prev ? prev[curr] : undefined)
+      }, obj || self)
     }
 
 }
