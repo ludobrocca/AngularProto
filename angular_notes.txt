@@ -1,0 +1,45 @@
+ANGULAR NOTES
+
+-MODULES
+Modules are buckets that contain imports of modules and components
+
+Basically they have no functions or private memeber, they are only defined by a @NgModule() directive, that define imports (with modules), declarations
+(Components used) and bootstrap for the root module, which indicates the root component for the angular app.
+
+--------------------------------------NgModule example
+
+@NgModule({
+  imports:      [ BrowserModule, CustomersModule ],
+  declarations: [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+
+------------------------------------------------------
+
+-COMPONENTS
+
+Components are made of 2 parts: Code (a .ts file) and a HTML template, the codes indicates imports, defines the custom tag that defines the component,
+and the business logic behind the components.
+the HTML template contains data binding properties, angular directives and pipes to display data.
+
+--CODE
+
+created with ng g c component-name
+
+
+They must present  @Component() directive, that indicates the selector and the html and css templates that must be loaded, it's also advised to implement the OnInit interface, that provides an inizializier method that assignes specific values at runtime
+
+
+-----------------------------------------Component Example
+@Component({
+    selector: 'app-customers',
+    templateUrl: './customers.component.html'
+})
+---------------------------------------------------------
+
+
+
+-COMMON WORK PARTITION
+
+Usually components and modules are created using the Angular Command Line Interface (CLI), that automatically divide components in directories that can be easily assigned to different programmers to develop. 
+
