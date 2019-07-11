@@ -5,11 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 
 import { ICustomer, IOrder } from '../../app/shared/interfaces';
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class DataService {
 
-    baseUrl= 'assets/';
+    baseUrl = 'assets/';
 
     constructor(private http: HttpClient) { }
 
@@ -24,18 +25,18 @@ export class DataService {
       return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
         .pipe(
           map(customers => {
-            let customer = customers.filter((cust: ICustomer) => cust.id === id);
+            const customer = customers.filter((cust: ICustomer) => cust.id === id);
             return (customer && customer.length) ? customer[0] : null;
           }),
           catchError(this.handleError)
-        )
+        );
     }
 
     getOrders(id: number): Observable<IOrder[]> {
       return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')
       .pipe(
           map(orders => {
-            let custOrders = orders.filter((order: IOrder) => order.customerId === id);
+            const custOrders = orders.filter((order: IOrder) => order.customerId === id);
             return custOrders;
           }),
           catchError(this.handleError)
@@ -47,11 +48,11 @@ export class DataService {
       console.error('server error:', error);
       if (error.error instanceof Error) {
           const errMessage = error.error.message;
-          return Observable.throw(errMessage);
+          return throwError(errMessage);
           // Use the following instead if using lite-server
           // return Observable.throw(err.text() || 'backend server error');
       }
-      return Observable.throw(error || 'Node.js server error');
+      return throwError(error || 'Node.js server error');
     }
 
 }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { DataService } from '../core/data.service';
 import { ICustomer, IOrder, IOrderItem } from '../shared/interfaces';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-orders',
@@ -19,7 +20,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
-    this.dataService.getOrders(id).subscribe((orders: IOrder[]) => {
+    this.dataService.getOrders(id).subscribe(orders => {
       this.orders = orders;
     });
 
