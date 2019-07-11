@@ -15,3 +15,10 @@ const routes: Routes = [
 export class CustomersRoutingModule {
 
 }
+
+/**
+ * The pattern is
+ * -For every feature we define a route
+ * -the route gets imported by the feature module
+ * -the root module imports the features module
+ */
